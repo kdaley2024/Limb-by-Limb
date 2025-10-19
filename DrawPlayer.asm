@@ -1,23 +1,4 @@
 INCLUDE rocketGame.inc
-.data
-; strings
-spcStr      BYTE    " ",0
-stickHead   BYTE    "O",0
-stickBody   BYTE    "|",0
-stickArms   BYTE    "/-",0
-stickLegs   BYTE    "/ \",0
-gunChar     BYTE    "*",0
-shipChar    BYTE    "^",0
-hitChar     BYTE    "#",0
-pillarChar  BYTE    "|",0
-bulletChar  BYTE    ".",0
-
-stickX      DWORD   6
-stickY      DWORD   18           ; baseline row (0=top)
-jumpStep    DWORD   2
-jumpTimerMs DWORD   0            ; for double-jump detection
-jumpWindow  DWORD   180          ; ms to allow a second UP for double jump
-isDucking   DWORD   0
 
 .code
 DrawPlayer PROC USES eax ebx
