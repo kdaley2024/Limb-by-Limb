@@ -18,7 +18,6 @@ main PROC PUBLIC
     call DrawPlayer
     ;call UpdateDifficulty
     ;push frameDelay
-    ;call Sleep@4
     jmp  gameLoop
     ;call    DumpRegs
 
