@@ -36,7 +36,7 @@ DrawPlayer PROC USES eax ebx
 @aimy:
     mov  ebx, stickX
     add  ebx, 2
-    ;INVOKE DrawAim, ebx, eax, aimDeg
+    INVOKE DrawAim, ebx, eax, aimDeg
     ret
 DrawPlayer ENDP
 
