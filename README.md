@@ -5,72 +5,81 @@ Computer Architecture and Assembly Language contest code by Chervelle Pierre and
 
 Arcade mini-game written in MASM using techniques shown in Kip Irvine, Assembly Language for x86 Processors (7th ed.). It runs as a Windows console app (text “graphics”) and uses Gotoxy, WriteString/WriteChar, Randomize/RandomRange, and Win32 timing (GetTickCount, Sleep).
 
-You control a stickman on a rocket dodging scrolling obstacles and aiming a gun to shoot spaceships in the sky. Spaceships come in 3 sizes with different hit points (HP). Every 10 seconds the scroll speed (difficulty) increases. When a ship is destroyed it briefly flashes and respawns at a random vertical position.
+You control a stickman while a spaceship continuously falls from the top of the screen. If the ship collides with the stickman, the player loses a limb (arms → legs → body → head). The stickman flashes red briefly and gains short invulnerability frames. Every 15 seconds the Level increases and the fall speed bumps up; the ship respawns at a random X when it leaves the screen.
 
 ## Core Mechanics
 
-### Movement
+### What You See
 
-Jump: Up arrow moves the stickman up by a fixed amount.
+Title bar: Limb by Limb
 
-Double jump: Press Up twice quickly (≈180 ms window) to jump 2× the amount.
+HUD (top-left): Level: <n>
 
-Duck: Down arrow makes the stickman shorter for one frame to clear low obstacles.
+Stickman: drawn with O | /- / \ and flashes red briefly when damaged
 
-### Aiming & Shooting
+Spaceship: a solid block of ^ characters that falls straight down and respawns at a random X
 
-Rotate aim: A (left) / D (right), clamped to 0–180° in coarse steps (integer math).
+### Collisions and Damage
 
-Fire: Space spawns a bullet from the stickman’s hand along the aim direction.
+The falling spaceship has three possible sizes (small/medium/big) with wider/heavier hitboxes.
 
-Collision: Bullets use AABB (bounding box) checks against the ship.
+On hit:
 
-### Spaceships (Targets)
+One limb is removed in order: arms → legs → body → head.
 
-3 sizes with HP = 1, 2, 3 (larger ship = larger bbox and more hits).
+The stickman flashes red for a few frames and has brief i-frames.
 
-On hit, the ship flashes for a few frames; at 0 HP it increments score and respawns with a random Y.
+When all limbs are gone, the game ends.
 
-### Obstacles & Difficulty
+### Spaceship (Target)
 
-Three vertical pillars scroll from right to left with a gap you must pass through.
+Spawns at a random X near the top row.
 
-Every 10 seconds the background speed increases (difficulty bump).
+Falls downward; when it goes off the bottom it respawns at the top with a new random X and size.
 
 ### HUD
 
-Top-left shows Score, current ship HP, and current scroll Speed.
+Top-left shows the title and Level
 
-### Controls
+### Difficulty
 
-↑: Jump (double-tap for double jump)
+Level increases automatically every 15 seconds.
 
-↓: Duck (one-frame clear)
-
-A / D: Rotate aim left/right (0–180°)
-
-Space: Shoot
-
-Esc: Quit
+Each level bump increases the fall speed (internally, bgSpeed2x is incremented).
 
 ## APIs used from the Textbook
 
-Cursor & text: Gotoxy, WriteString, WriteChar, Clrscr (Irvine32)
+Cursor & text: Gotoxy, WriteString, WriteChar, SetTextColor, Clrscr (Irvine32)
 
 Random: Randomize, RandomRange (Irvine32)
 
-Timing: GetTickCount, Sleep (Win32 API called from MASM)
+Timing: GetTickCount, Sleep (Win32)
 
-Keyboard (non-blocking): GetAsyncKeyState (Win32 API) for responsive polling
-
-Arithmetic: integer-only updates; optional CDQ/IDIV patterns are documented for signed division (not required in the starter).
+Keyboard (non-blocking): GetAsyncKeyState (Win32)
 
 # Game Operations
-showplayer
-showbullet
-printobsatcles
-printscore
-changecolor
-gameover
-checkpoint
+
+PutChAt – helper to draw one character at (x,y)
+
+SpawnShip – choose size/X and reset ship at the top
+
+UpdateSteps – compute per-frame fall step from speed
+
+MoveShipDown – advance ship and respawn when off-screen
+
+DrawShip – render the cyan ship rectangle
+
+DrawPlayer – render the stickman (handles red flash)
+
+DamagePlayer – remove a limb, set i-frames/flash, end if none left
+
+CheckPlayerShipCollision – AABB overlap test, triggers damage
+
+CheckKeys – handle arrow keys and Esc
+
+ApplyGravity – drift back toward baseline when no vertical input
+
+UpdateDifficulty – bump Level and speed every 15s
+
+DrawHUD – title + current Level
 
