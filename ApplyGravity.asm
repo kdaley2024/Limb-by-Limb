@@ -1,6 +1,4 @@
 INCLUDE rocketGame.inc
-
-
 .code
 ApplyGravity PROC USES eax
     mov  eax, stickY
