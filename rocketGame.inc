@@ -12,8 +12,6 @@ scrH        EQU 25
 ;Windows virtual-key codes (hex)
 VK_LEFT   EQU 25h
 VK_RIGHT  EQU 27h
-VK_UP     EQU 26h
-VK_DOWN   EQU 28h
 VK_ESCAPE EQU 1Bh
 
 ;Win API proto
@@ -29,7 +27,6 @@ MoveShipDown
 DrawHud PROTO
 CheckKeys PROTO
 UpdateDifficulty PROTO
-ApplyGravity PROTO
 DrawPlayer PROTO
 DamagePlayer PROTO
 
@@ -45,5 +42,4 @@ EXTERNDEF shipX:SDWORD, shipY:SDWORD, shipType:DWORD
 EXTERNDEF bgSpeed2x:DWORD, lastBumpMs:DWORD
 EXTERNDEF frameDelay:DWORD
 EXTERNDEF shipAcc:DWORD, shipStep:DWORD
-EXTERNDEF graveAcc:DWORD, vInput:DWORD
 EXTERNDEF stickHead:BYTE, stickBody:BYTE, stickArms:BYTE, stickLegs:BYTE
