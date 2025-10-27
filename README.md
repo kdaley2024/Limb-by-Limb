@@ -77,8 +77,6 @@ CheckPlayerShipCollision – AABB overlap test, triggers damage
 
 CheckKeys – handle arrow keys and Esc
 
-ApplyGravity – drift back toward baseline when no vertical input
-
 UpdateDifficulty – bump Level and speed every 15s
 
 DrawHUD – title + current Level
