@@ -4,13 +4,28 @@ INCLUDE rocketGame.inc
 .code
 main PROC PUBLIC
 
-    ;call    Example1
-    ;call    Example2
+    call Clrscr
+    call Randomize
+
+    call GetTickCount@0
+    add  eax, 15000
+    mov  lastBumpMs, eax
+
+    call SpawnShip
 
     gameLoop:
+
+    cmp  bgSpeed2x, 0FFFFFFFFh
+    je   exitGame
+
     call Clrscr
-    ;call CheckKeys
-    ;call ApplyGravity
+   
+    call CheckKeys
+    call ApplyGravity
+    call UpdateSteps
+    call MoveShipDown
+    call CheckPlayerShipCollision
+
     ;call DrawObstacles
     ;call DrawShip
     ;call UpdateBullets
