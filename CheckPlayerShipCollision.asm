@@ -1,5 +1,7 @@
 INCLUDE rocketGame.inc
 
+.code
+
 CheckPlayerShipCollision PROC USES eax ebx ecx edx esi edi ebp
 
     cmp  playerIFrames, 0
