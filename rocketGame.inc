@@ -23,7 +23,7 @@ UpdateSteps PROTO
 DrawShip  PROTO
 SpawnShip PROTO
 CheckPlayerShipCollision PROTO
-MoveShipDown
+MoveShipDown PROTO
 DrawHud PROTO
 CheckKeys PROTO
 UpdateDifficulty PROTO
