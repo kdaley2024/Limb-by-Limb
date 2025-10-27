@@ -1,5 +1,7 @@
 INCLUDE rocketGame.inc
 
+.code
+
 DrawShip PROC USES eax ebx ecx edx edi
     mov  edi, shipType
     mov  edx, 6
@@ -46,3 +48,5 @@ DrawShip PROC USES eax ebx ecx edx edi
     call SetTextColor
     ret
 DrawShip ENDP
+
+END
