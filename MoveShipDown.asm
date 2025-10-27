@@ -13,3 +13,5 @@ MoveShipDown PROC USES eax ebx
 @done:
     ret
 MoveShipDown ENDP
+
+END
