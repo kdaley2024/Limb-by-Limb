@@ -37,14 +37,15 @@ main PROC PUBLIC
     call DrawShip
     call DrawHUD
     call DrawPlayer
-    ;call UpdateDifficulty
-    ;push frameDelay
+    call UpdateDifficulty
+
+    push frameDelay
+    call Sleep@4
     jmp  gameLoop
-    ;call    DumpRegs
 
-    ;exit
-    invoke ExitProcess, 0
-
+exitGame:
+    call Clrscr
+    ret
 main ENDP
 
 END main
