@@ -5,3 +5,6 @@ INCLUDE Irvine32.inc
 ExitProcess PROTO, dwExitCode:DWORD
 OPTION PROC: PRIVATE
 
+PutChAt PROTO :BYTE, :DWORD, :DWORD
+DrawPlayer PROTO
+
