@@ -24,6 +24,20 @@ DrawPlayer PROC USES eax ebx edx
         jz   @noBody
         INVOKE PutChAt, '|', stickX, eax
     @noBody:
+        ; Draw the body looking like /-
+        inc  eax
+        mov  ebx, limbMask
+        test ebx, 4
+        jz   @noArms
+        mov  ebx, stickX
+        dec  ebx
+        mov  dl, bl
+        mov  dh, al
+        call Gotoxy
+        mov  edx, OFFSET stickArms
+        call WriteString
+@noArms:
+
 
 
     ret
