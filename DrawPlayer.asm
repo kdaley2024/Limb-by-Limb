@@ -36,8 +36,22 @@ DrawPlayer PROC USES eax ebx edx
         call Gotoxy
         mov  edx, OFFSET stickArms
         call WriteString
-@noArms:
-
+    @noArms:
+        ; Draw the legs looking like / \
+        inc  eax
+        mov  ebx, limbMask
+        test ebx, 8
+        jz   @noLegs
+        mov  dl, BYTE PTR stickX
+        mov  dh, al
+        call Gotoxy
+        mov  edx, OFFSET stickLegs
+        call WriteString
+    @noLegs:
+    
+        ; restore to white when the flashing of the player is later implemented
+        mov  eax, (BLACK SHL 4) + WHITE
+        call SetTextColor
 
 
     ret
