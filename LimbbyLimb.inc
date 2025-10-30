@@ -10,12 +10,17 @@ PutChAt PROTO :BYTE, :DWORD, :DWORD
 DrawPlayer PROTO
 DrawHUD    PROTO
 DrawShip PROTO
+CheckKeys PROTO
 
 Gotoxy        PROTO
 WriteString   PROTO
 WriteChar     PROTO
 WriteDec      PROTO
 SetTextColor  PROTO
+
+
+;WIN API which was learnt from the textbook
+EXTERN  GetAsyncKeyState@4:PROC
 
 
 
@@ -28,3 +33,4 @@ EXTERNDEF lvlLbl:BYTE
 EXTERNDEF level:DWORD
 EXTERNDEF shipY:SDWORD
 EXTERNDEF scrW:ABS, scrH:ABS
+EXTERNDEF bgSpeed2x:DWORD
