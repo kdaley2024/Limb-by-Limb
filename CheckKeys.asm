@@ -30,7 +30,22 @@ CheckKeys PROC USES eax ebx
 @leftOk:
     mov  stickX, eax
 @noLeft:
-
+; RIGHT - move player right (X+)
+    push VK_RIGHT
+    call GetAsyncKeyState@4
+    test ax, 8000h
+    jz   @noRight
+    mov  eax, stickX
+    add  eax, H_STEP
+    mov  ebx, scrW
+    ; width ~3 columns
+    sub  ebx, 3                        
+    cmp  eax, ebx
+    jle  @rightOk
+    mov  eax, ebx
+@rightOk:
+    mov  stickX, eax
+@noRight:
 
     ret
 CheckKeys ENDP
