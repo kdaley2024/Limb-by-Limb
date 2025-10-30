@@ -25,6 +25,15 @@ DrawShip PROC USES eax ebx ecx edx edi
     mov  eax, (BLACK SHL 4) + LIGHTCYAN
     call SetTextColor
 
+;drawing the spaceship based on number of rows and columns and making them look like ^
+@draw:
+    mov  ecx, ebx
+    mov  eax, shipY
+@rows:
+    push ecx
+    mov  ecx, edx
+    mov  edi, shipX
+
 
     ret
 DrawShip ENDP
