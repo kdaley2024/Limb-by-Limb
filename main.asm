@@ -24,6 +24,8 @@ stickArms   BYTE "/-",0
 
 shipType    DWORD 0
 
+bgSpeed2x   DWORD 2
+
 .code
 main PROC PUBLIC
 INVOKE ExitProcess, 0
