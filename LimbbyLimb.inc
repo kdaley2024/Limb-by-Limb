@@ -15,7 +15,8 @@ Gotoxy        PROTO
 WriteString   PROTO
 WriteChar     PROTO
 WriteDec      PROTO
-DrawHUD       PROTO
+SetTextColor  PROTO
+
 
 
 ;global variables
