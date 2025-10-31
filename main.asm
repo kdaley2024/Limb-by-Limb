@@ -22,6 +22,7 @@ limbMask        DWORD 0Fh
 stickHead   BYTE "O",0
 stickBody   BYTE "|",0
 stickArms   BYTE "/-",0
+stickLegs   BYTE "/ \",0
 
 shipX       SDWORD 70
 shipY       SDWORD 1
