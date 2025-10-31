@@ -40,6 +40,11 @@ main PROC PUBLIC
     mov  lastBumpMs, eax
 
     call SpawnShip
+
+    call DrawShip
+    call DrawHUD
+    call DrawPlayer
+
 INVOKE ExitProcess, 0
 main ENDP
 END main
