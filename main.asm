@@ -41,9 +41,19 @@ main PROC PUBLIC
 
     call SpawnShip
 
+gameLoop:
+    cmp  bgSpeed2x, 0FFFFFFFFh
+    je   exitGame
+
+    call Clrscr
+    call CheckKeys
+    call MoveShipDown
+
     call DrawShip
     call DrawHUD
     call DrawPlayer
+
+    jmp  gameLoop
 
 exitGame:
     call Clrscr
