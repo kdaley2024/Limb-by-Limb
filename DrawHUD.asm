@@ -1,6 +1,7 @@
 INCLUDE LimbbyLimb.inc
 .code
 
+;Displays the game screen with level and score
 DrawHUD PROC USES eax edx
     mov  dl, 0
     mov  dh, 0

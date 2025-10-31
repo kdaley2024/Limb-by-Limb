@@ -6,7 +6,7 @@ SpawnShip PROC
     call RandomRange ; gets a random number within range
     mov  shipType, eax
 
-
+    ;determines the ship size
     mov  eax, shipType
     cmp  eax, 0
     je   @small
