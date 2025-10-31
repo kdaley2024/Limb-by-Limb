@@ -16,8 +16,6 @@ level           DWORD 1
 lastBumpMs  DWORD 0
 
 stickX      DWORD 6
-shipX       SDWORD 70
-shipY       SDWORD 1
 
 limbMask        DWORD 0Fh
 
@@ -25,7 +23,10 @@ stickHead   BYTE "O",0
 stickBody   BYTE "|",0
 stickArms   BYTE "/-",0
 
+shipX       SDWORD 70
+shipY       SDWORD 1
 shipType    DWORD 0
+shipStep    DWORD 1
 
 bgSpeed2x   DWORD 2
 
