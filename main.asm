@@ -28,6 +28,7 @@ shipX       SDWORD 70
 shipY       SDWORD 1
 shipType    DWORD 0
 shipStep    DWORD 1
+shipAcc     DWORD 0
 
 bgSpeed2x   DWORD 2
 
@@ -49,7 +50,7 @@ gameLoop:
     call Clrscr
     call CheckKeys
     call MoveShipDown
-
+    call UpdateSteps
     call DrawShip
     call DrawHUD
     call DrawPlayer

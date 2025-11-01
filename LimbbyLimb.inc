@@ -13,6 +13,7 @@ DrawShip PROTO
 CheckKeys PROTO
 SpawnShip PROTO
 MoveShipDown PROTO
+UpdateSteps PROTO
 
 Gotoxy        PROTO
 WriteString   PROTO
@@ -31,6 +32,9 @@ EXTERN  GetTickCount@0:PROC
 ;global variables
 
 EXTERNDEF stickX:DWORD
+
+EXTERNDEF stickX:DWORD, stickY:DWORD
+EXTERNDEF shipType:DWORD
 EXTERNDEF limbMask:DWORD
 EXTERNDEF titleMsg:BYTE
 EXTERNDEF lvlLbl:BYTE
@@ -40,4 +44,7 @@ EXTERNDEF shipY:SDWORD
 EXTERNDEF scrW:ABS, scrH:ABS
 EXTERNDEF bgSpeed2x:DWORD
 EXTERNDEF shipStep:DWORD
+EXTERNDEF lastBumpMs:DWORD
+EXTERNDEF shipAcc:DWORD
+
 
