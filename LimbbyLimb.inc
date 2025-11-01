@@ -33,7 +33,7 @@ EXTERN  GetTickCount@0:PROC
 
 
 
-EXTERNDEF stickX:DWORD, stickY:DWORD
+EXTERNDEF stickX:DWORD
 EXTERNDEF shipType:DWORD
 EXTERNDEF limbMask:DWORD
 EXTERNDEF titleMsg:BYTE
@@ -46,5 +46,7 @@ EXTERNDEF bgSpeed2x:DWORD
 EXTERNDEF shipStep:DWORD
 EXTERNDEF lastBumpMs:DWORD
 EXTERNDEF shipAcc:DWORD
+EXTERNDEF stickHead:BYTE, stickBody:BYTE, stickArms:BYTE, stickLegs:BYTE
+
 
 
