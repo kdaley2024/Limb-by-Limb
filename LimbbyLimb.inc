@@ -28,6 +28,7 @@ Clrscr        PROTO
 ;WIN API which was learnt from the textbook
 EXTERN  GetAsyncKeyState@4:PROC
 EXTERN  GetTickCount@0:PROC
+EXTERN  Sleep@4:PROC
 
 
 ;global variables
