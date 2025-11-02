@@ -11,6 +11,7 @@ CheckKeys PROC USES eax ebx
 
     ; ESC - quit the game
     push VK_ESCAPE
+;WIN API that was learnt from the textbook
     call GetAsyncKeyState@4
     test ax, 8000h
     jz   @noEsc
@@ -19,6 +20,7 @@ CheckKeys PROC USES eax ebx
 @noEsc:
     ; LEFT - move player left (X-)
     push VK_LEFT
+;WIN API that was learnt from the textbook
     call GetAsyncKeyState@4
     test ax, 8000h
     jz   @noLeft
@@ -32,6 +34,7 @@ CheckKeys PROC USES eax ebx
 @noLeft:
 ; RIGHT - move player right (X+)
     push VK_RIGHT
+;WIN API that was learnt from the textbook
     call GetAsyncKeyState@4
     test ax, 8000h
     jz   @noRight
