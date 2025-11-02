@@ -17,6 +17,7 @@ lastBumpMs  DWORD 0
 
 stickX      DWORD 6
 
+frameDelay      DWORD 30
 limbMask        DWORD 0Fh
 
 stickHead   BYTE "O",0
@@ -55,6 +56,9 @@ gameLoop:
     call DrawHUD
     call DrawPlayer
     call UpdateDifficulty
+
+    push frameDelay
+    call Sleep@4
 
     jmp  gameLoop
 
