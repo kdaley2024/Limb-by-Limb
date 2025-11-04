@@ -16,6 +16,7 @@ MoveShipDown PROTO
 UpdateSteps PROTO
 UpdateDifficulty PROTO
 CheckPlayerShipCollision PROTO
+DamagePlayer PROTO
 
 Gotoxy        PROTO
 WriteString   PROTO
