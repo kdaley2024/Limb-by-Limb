@@ -10,6 +10,21 @@ LIGHTCYAN EQU 11
 
 ;this procedure will draw the stickman in parts
 DrawPlayer PROC USES eax ebx edx
+
+    mov  eax, stickY
+
+    ; the body will flash red if it is hit
+    cmp  playerFlash, 0
+    jle  @setWhite
+    mov  edx, (BLACK SHL 4) + LIGHTRED
+    mov  eax, edx
+    call SetTextColor
+    jmp  @draw
+@setWhite:
+    mov  edx, (BLACK SHL 4) + WHITE
+    mov  eax, edx
+    call SetTextColor
+
     @draw:
         ; Draw the head looking like O
         mov  ebx, limbMask
