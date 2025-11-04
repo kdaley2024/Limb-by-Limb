@@ -36,7 +36,6 @@ bgSpeed2x   DWORD 2
 playerIFrames   DWORD 0
 nextDamageIdx   DWORD 0
 damageOrder     DWORD 4, 8, 2, 1
-playerIFrames   DWORD 0
 playerFlash     DWORD 0
 
 
@@ -62,6 +61,16 @@ gameLoop:
     call UpdateSteps
     call MoveShipDown
     call CheckPlayerShipCollision
+
+    cmp  playerFlash, 0
+    jle  @noflash
+    dec  playerFlash
+@noflash:
+    cmp  playerIFrames, 0
+    jle  @noifr
+    dec  playerIFrames
+@noifr:
+
     call DrawShip
     call DrawHUD
     call DrawPlayer
