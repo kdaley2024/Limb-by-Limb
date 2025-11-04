@@ -35,6 +35,8 @@ shipAcc     DWORD 0
 bgSpeed2x   DWORD 2
 playerIFrames   DWORD 0
 nextDamageIdx   DWORD 0
+damageOrder     DWORD 4, 8, 2, 1
+
 
 
 .code
