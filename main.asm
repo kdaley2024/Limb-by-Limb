@@ -16,6 +16,7 @@ level           DWORD 1
 lastBumpMs  DWORD 0
 
 stickX      DWORD 6
+stickY      DWORD 18
 
 frameDelay      DWORD 30
 limbMask        DWORD 0Fh

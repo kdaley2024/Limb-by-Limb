@@ -29,7 +29,7 @@ CheckPlayerShipCollision PROC USES eax ebx ecx edx esi edi ebp
     add  ecx, edx                     ; temp = sx0 + W
     dec  ecx                          ; sx1
 
-       mov  esi, shipY                   ; sy0
+    mov  esi, shipY                   ; sy0
     mov  edx, esi                     ; temp = sy0
     add  edx, ebx                     ; temp = sy0 + H
     dec  edx                          ; sy1   (EDX holds sy1)
@@ -39,6 +39,23 @@ CheckPlayerShipCollision PROC USES eax ebx ecx edx esi edi ebp
     mov  edi, ebx                     ; px1 base
     sub  ebx, 1                       ; px0 = x-1
     add  edi, 1                       ; px1 = x+1
+    
+       ; ---- X overlap quick-reject ----
+    cmp  eax, edi                     ; sx0 > px1 ?
+    jg   @skip
+    cmp  ecx, ebx                     ; sx1 < px0 ?
+    jl   @skip
+
+    ;player's bounding box in the vertical direction
+    mov  ebp, stickY                  ; py0
+    mov  eax, ebp                     ; py1 base
+    add  eax, 3                       ; py1 = py0 + 3
+
+    ; ---- Y overlap quick-reject ----
+    cmp  esi, eax                     ; sy0 > py1 ?
+    jg   @skip
+    cmp  edx, ebp                     ; sy1 < py0 ?
+    jl   @skip
 
  @skip:  
     ret
