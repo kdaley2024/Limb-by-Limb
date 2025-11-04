@@ -57,6 +57,8 @@ CheckPlayerShipCollision PROC USES eax ebx ecx edx esi edi ebp
     cmp  edx, ebp                    
     jl   @skip
 
+    call DamagePlayer
+
  @skip:  
     ret
 CheckPlayerShipCollision ENDP
