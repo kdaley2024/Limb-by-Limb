@@ -53,6 +53,4 @@ EXTERNDEF stickHead:BYTE, stickBody:BYTE, stickArms:BYTE, stickLegs:BYTE
 EXTERNDEF frameDelay:DWORD
 EXTERNDEF stickY:DWORD
 EXTERNDEF nextDamageIdx:DWORD
-
-
-
+EXTERNDEF damageOrder:DWORD
