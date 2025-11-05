@@ -27,9 +27,12 @@ RandomRange   PROTO
 Randomize     PROTO
 Clrscr        PROTO
 
-;WIN API which was learnt from the textbook
+;This was not learnt in class. This is the Windows API which was learnt from the textbook.
+;learn.microsoft.com
 EXTERN  GetAsyncKeyState@4:PROC
+;Chapter 11.1
 EXTERN  GetTickCount@0:PROC
+;Chapter 11.1
 EXTERN  Sleep@4:PROC
 
 
